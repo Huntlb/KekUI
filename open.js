@@ -1,5 +1,5 @@
 // Open a new tab and get a reference to the new window
-var newTab = window.open("hordes.io/play");
+var newTab = window.open("https://hordes.io/play");
 
 // Add a script element to the new window
 var scriptElement = newTab.document.createElement('script');
