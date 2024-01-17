@@ -140,7 +140,8 @@
                 const svelteObj = {
                     skillsMenu: "svelte-urqsjg",
                     statsMenu: "svelte-ggsnc",
-                    chat: "svelte-16y0b84"
+                    chat: "svelte-16y0b84",
+                    bag: "svelte-1axz35n",
                 }
  
                 const emoteDictionary = {
@@ -242,13 +243,11 @@
                     }
                 };
                 // Inject the styles into the page
-                // Create a style element and append it to the head
                   var styleElement = document.createElement('style');
                   styleElement.type = 'text/css';
                   styleElement.appendChild(document.createTextNode(gradientStyles));
                   document.head.appendChild(styleElement);
-
-                function saveProps(props) {
+function saveProps(props) {
                     try {
                         // Retrieve existing saved props
                         const savedKekPropsString = localStorage.getItem('savedKekProps');
@@ -771,7 +770,7 @@
                                                     icon.style.maxWidth = iconSize + "px"
                                                     const stacks = icon.querySelector(".stacks")
                                                     }
- 
+                                                
                                             }
                                         })
  
@@ -4955,6 +4954,7 @@
                 }
  
                 function updateFriendList(data) {
+                    if(!data) return
                     const existingList = document.querySelector(".friendListGridKEK");
  
                     if (existingList) {
@@ -5550,7 +5550,7 @@
                     if(currentSenderName == "") {
                         return
                     }
-                    console.log("Whispering", currentSenderName)
+                    // console.log("Whispering", currentSenderName)
                     const chatInput = document.querySelector(".chatsection input");
  
                     document.body.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, keyCode: 13 }));
@@ -5566,17 +5566,17 @@
  
                 function runAll() {
                     // console.log("running all")
-                    // handleSkillbar()
-                    // handlePartyframes()
-                    // handlePartyframesMutations()
+                    handleSkillbar()
+                    handlePartyframes()
+                    handlePartyframesMutations()
                     handleChatPanel()
                     handleChatInput()
                     handleExpBar()
                     handleBtnBar()
                     handleBagMenu()
-                    // handleTargetFrames()
-                    // refreshPartyframes()
-                    // handleTargetframesMutations()
+                    handleTargetFrames()
+                    refreshPartyframes()
+                    handleTargetframesMutations()
                     handleSkills()
                     handleStats()
                 }
@@ -5653,17 +5653,17 @@
                 });
                 // Wait for the page to load
                 handleDOMMutations()
-                // handleSkillbar()
+                handleSkillbar()
                 handleExpBar()
                 handleBtnBar()
-                // handlePartyframes()
+                handlePartyframes()
                 handleChatPanel()
                 handleChatInput()
-                // handleTargetFrames()
-                // refreshPartyframes()
+                handleTargetFrames()
+                refreshPartyframes()
                 generateMenuForUI()
-                // handleTargetframesMutations()
-                // handlePartyframesMutations()
+                handleTargetframesMutations()
+                handlePartyframesMutations()
                 handleGloomTimers()
                 handleBagMenu()
                 handleSkills()
